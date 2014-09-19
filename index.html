@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Coffee Timer</title>
+  <link rel="stylesheet" href="stylesheets/main.css" />
+  <script data-main="scripts/app" src="scripts/vendor/require.js"></script>
+</head>
+
+<body>
+	<div class="panel" data-bind="template: { name: 'template-timer', if: activeMode() == 'timer'}"></div>
+	<div class="panel" data-bind="template: { name: 'template-log', if: activeMode() == 'log'}"></div>
+	<div class="menu-bar" data-bind="template: { name: 'template-menu-bar', foreach: modes }"></div>
+
+	<script type="text/html" id="template-menu-bar">
+		<div class="menu-bar-button">
+			<a href="#" class="menu-bar-button-body" data-bind="text: title, click: $root.setActiveMode, css: { 'active': title == $root.activeMode() }"></a>
+		</div>
+	</script>
+
+	<script type="text/html" id="template-timer">
+		<div class="panel-header">
+			<a href="#" data-bind="click: cyclePresets, with: activePreset">
+				<h3 data-bind="text: $data.title"></h3>
+			</a>
+		</div>
+		<div>
+			<span class="timer-label">Bloom</span>
+			<span class="timer-number" data-bind="text: timer.bloom"></span>
+			<span data-bind="text: metrics.time.full"></span>
+		</div>
+		<div>
+			<span class="timer-label">Brew</span>
+			<span class="timer-number" data-bind="text: timer.brew"></span>
+			<span data-bind="text: metrics.time.full"></span>
+		</div>
+		<a href="#" class="round-button start-button" data-bind="click: startTimer">Start</a>
+		<a href="#" class="round-button" data-bind="click: resetTimer">Reset</a>
+	</script>
+
+	<script type="text/html" id="template-log">
+		<h1>It&#39;s a log!</h1>
+	</script>
+</body>
+</html>
