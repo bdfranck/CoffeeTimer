@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <title>Coffee Timer</title>
   <link rel="stylesheet" href="stylesheets/main.css" />
   <script data-main="scripts/app" src="scripts/vendor/require.js"></script>
 </head>
-
 <body>
 	<div class="panel" data-bind="template: { name: 'template-timer', if: activeMode() == 'timer'}"></div>
 	<div class="panel" data-bind="template: { name: 'template-log', if: activeMode() == 'log'}"></div>
