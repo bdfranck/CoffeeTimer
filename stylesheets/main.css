@@ -16,6 +16,16 @@ a:hover {
 	color: #0899CC;
 }
 
+a:focus {
+	outline: none;
+}
+
+a::-moz-focus-inner {
+  border: 0;
+}
+
+
+
 .menu-bar {
 	padding: 4px;
 	display: block;
